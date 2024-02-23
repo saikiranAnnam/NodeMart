@@ -1,0 +1,1 @@
+# NodeMart: A RESTful API with User Registration, Authentication, and Product Management

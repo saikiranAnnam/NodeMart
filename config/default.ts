@@ -1,5 +1,8 @@
+require("dotenv").config();
+
 export default {
-  port: 1337,
-  dbUri:
-    "mongodb+srv://admin:saikiran54@cluster0.tffbtx0.mongodb.net/rest-api?retryWrites=true&w=majority",
+  port: process.env.PORT,
+  dbUri: process.env.DB_URI,
+  saltWorkFactor: 10, 
+
 };
