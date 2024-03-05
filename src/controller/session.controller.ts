@@ -35,11 +35,11 @@ export async function createUserSessionHandler(req: Request, res: Response) {
   return res.send({ accessToken, refreshToken });
 }
 
-export async function getUserSessionHandler(req: Request, res: Response) {
-  const userId = res.locals.users._id;
-  console.log("user-id", userId);
+export async function getUserSessionsHandler(req: Request, res: Response) {
+  const userId = res.locals.user._id;
+  console.log("user-id : ", userId);
   const sessions = await findSessions({ user: userId, valid: true });
-  console.log({ sessions });
+  console.log("sessions : ", sessions);
   return res.send(sessions);
 }
 

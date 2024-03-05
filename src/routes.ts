@@ -2,7 +2,7 @@ import { Express } from "express";
 import {
   createUserSessionHandler,
   deleteUserSessionHandler,
-  getUserSessionHandler,
+  getUserSessionsHandler,
 } from "./controller/session.controller";
 import { createUserHandler } from "./controller/user.controller";
 import requireUser from "./middleware/requireUser";
@@ -18,14 +18,14 @@ const routes = (app: Express) => {
   app.post("/api/users", validateResource(createUserSchema), createUserHandler);
 
   app.post(
-    "/api/sessions",
+    "/api/login",
     validateResource(createSessionSchema),
     createUserSessionHandler
   );
 
-  app.get("/api/sessions", requireUser, getUserSessionHandler);
+  app.get("/api/sessions", requireUser, getUserSessionsHandler);
 
-  app.delete("/api/sessions", requireUser, deleteUserSessionHandler);
+  app.delete("/api/logout", requireUser, deleteUserSessionHandler);
 };
 
 export default routes;
