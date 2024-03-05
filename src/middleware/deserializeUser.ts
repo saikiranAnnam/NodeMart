@@ -15,14 +15,14 @@ const deserializeUser = async (
 
   const refreshToken = get(req, "headers.x-refresh")?.toString();
 
-  console.log(accessToken);
+  
 
   if (!accessToken) {
     return next();
   }
 
   const { decoded, expired } = verifyJwt(accessToken); // Assuming verifyJwt returns both decoded token and error if any
-  console.log("decoded: ", decoded);
+  
 
   if (decoded) {
     res.locals.user = decoded;
