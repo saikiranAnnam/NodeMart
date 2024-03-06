@@ -1,3 +1,7 @@
 npm install express zod config cors express mongoose pino pino-pretty dayjs bcrypt jsonwebtoken lodash nanoid dotenv
 
 npm install @types/body-parser @types/config @types/cors @types/express @types/node @types/pino @types/bcrypt @types/jsonwebtoken @types/lodash @types/nanoid ts-node-dev typescript -D
+
+npm install supertest jest ts-jest @types/jest @types/supertest -D
+
+yarn ts-jest config:init
