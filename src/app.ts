@@ -1,20 +1,16 @@
-import express from "express";
 import config from "config";
 import connectdb from "./utils/connectdb";
 import logger from "./utils/logger";
-import routes from "./routes";
-import deserializeUser from "./middleware/deserializeUser";
+import createServer from "./utils/server";
 
-const port = config.get<number>("port");
+const port = process.env.PORT || config.get<number>("port");
+const environment = process.env.NODE_ENV || "development";
 
-const app = express();
-app.use(express.json());
-app.use(deserializeUser);
-
+const app = createServer();
 
 app.listen(port, async () => {
-  logger.info(`App is running st http://localhost:${port}`);
+  logger.info(
+    `App is running st http://localhost:${port} in ${environment} environment`
+  );
   await connectdb();
-
-  routes(app);
 });
