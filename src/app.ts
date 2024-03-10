@@ -3,6 +3,7 @@ import connectdb from "./utils/connectdb";
 import logger from "./utils/logger";
 import createServer from "./utils/server";
 
+
 const port = process.env.PORT || config.get<number>("port");
 const environment = process.env.NODE_ENV || "development";
 
